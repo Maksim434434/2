@@ -2,15 +2,17 @@
 
 namespace App\Livewire\Category;
 
+
 use App\Models\Category;
 use Livewire\Attributes\On;
 use Livewire\Component;
-use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
+
 
 class ListCategory extends Component
 {
     use WithPagination;
+
 
     public int $limit = 10;
 
@@ -23,6 +25,8 @@ class ListCategory extends Component
     public string $orderByDirection = 'desc';
 
     public array $fields = ['ID','Name'];
+
+    public $file;
 
     public function changeField($field)
     {
@@ -45,6 +49,7 @@ class ListCategory extends Component
     }
 
     #[On('category-created')]
+    #[On('category-import')]
     public function render()
     {
         $categories = Category::

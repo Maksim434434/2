@@ -41,7 +41,7 @@ class ListCountry extends Component
         $this->orderByField = $field;
     }
 
-    public function deleteCountry(Country $country)
+    public function deleteCategory(Country $country)
     {
         $country->delete();
     }
